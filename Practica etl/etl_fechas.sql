@@ -5,7 +5,7 @@ CREATE PROCEDURE etlFechas()
 BEGIN
     DROP TABLE IF EXISTS fechas;
     CREATE TABLE fechas (
-        id_fecha DATE,
+        id_fecha DATE PRIMARY KEY,
         year_int INT,
         month_num INT,
 
@@ -22,7 +22,7 @@ BEGIN
         quarter_text_short_english VARCHAR(3)
     );
 
-    INSERT INTO fechas
+    INSERT IGNORE INTO fechas
         SELECT
         so.orddate,
 
